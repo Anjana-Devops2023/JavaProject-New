@@ -8,7 +8,7 @@ pipeline {
       steps {
         sh '''
         export PATH="/opt/sonar-scanner/bin:$PATH"
-        mvn clean verify sonar:sonar -Dsonar.projectKey=java_app -Dsonar.projectName='java_app' -Dsonar.host.url=$SonarQube_URL -Dsonar.token=$SonarQube_Access_Token
+        mvn clean verify sonar:sonar -Dsonar.projectKey=Java_app -Dsonar.projectName='Java_app' -Dsonar.host.url=$SonarQube_URL -Dsonar.token=$SonarQube_Access_Token
         '''
       }
     }
