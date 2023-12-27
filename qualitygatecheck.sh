@@ -1,5 +1,5 @@
 #!/bin/bash
-curl -u admin:nani http://13.52.186.150:9000/api/qualitygates/project_status?projectKey=java_app > check.json
+curl -u admin:Anjana http://http://18.218.195.244:9000/api/qualitygates/project_status?projectKey=java_app > check.json
 scan_status=$(cat check.json | grep -i status | cut -d ":" -f 3 | cut -d "," -f 1 | tr -d '"')
 if [[ $scan_status -eq OK ]]
 then
