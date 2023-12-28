@@ -10,9 +10,9 @@ pipeline {
       steps {
         sh '''
         gitleaks detect --source . --log-opts "-n 1"
-        gitleaks detect --source . --report-path=gitleaks.json
-        mv /gitleaks.json /gitleaks-$BUILD_NUMBER.json
-        aws s3 cp /gitleaks-$BUILD_NUMBER.json s3://jenkinsbucketdemo
+        gitleaks detect --source . --log-opts "-n 1" --report-path=gitleaks.json
+        mv gitleaks.json gitleaks-$BUILD_NUMBER.json
+        aws s3 cp gitleaks-$BUILD_NUMBER.json s3://jenkinsbucketdemo
         '''
       }
     } 
