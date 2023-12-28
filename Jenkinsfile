@@ -30,11 +30,18 @@ pipeline {
     stage('Push Artifact to S3') {
       steps {
         sh '''
+          gitleaks detect --source . -v
+        '''
+      }
+    }    
+    stage('Gitleaks') {
+      steps {
+        sh '''
         mv webapp/target/webapp.war webapp/target/webapp-$BUILD_NUMBER.war
         aws s3 cp webapp/target/webapp-$BUILD_NUMBER.war s3://jenkinsbucketdemo
         '''
       }
-    }
+    }    
     // stage('DockerBuild') {
     //   steps {
     //     sh 'docker build -t java .'
