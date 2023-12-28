@@ -31,7 +31,7 @@ pipeline {
       steps {
         sh '''
         mv webapp/target/webapp.war webapp/target/webapp-$BUILD_NUMBER.war
-        aws s3 cp webapp/target/webapp-$BUILD_NUMBER.war s3://jenkinsbucketdemo'
+        aws s3 cp webapp/target/webapp-$BUILD_NUMBER.war s3://jenkinsbucketdemo
         '''
       }
     }
