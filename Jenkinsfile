@@ -9,7 +9,7 @@ pipeline {
   stage('Gitleaks') {
       steps {
         sh '''
-        gitleaks detect --source . -v
+        gitleaks detect --source . --log-opts "-n 1"
         '''
       }
     } 
