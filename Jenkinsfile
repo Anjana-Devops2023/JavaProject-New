@@ -10,6 +10,7 @@ pipeline {
       steps {
         sh '''
         gitleaks detect --source . --log-opts "-n 1"
+        gitleaks detect --source . --report-path=gitleaks.json
         '''
       }
     } 
